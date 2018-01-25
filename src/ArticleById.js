@@ -138,7 +138,7 @@ class ArticleById extends Component {
                             <textarea onChange={this.handleComment} value={this.state.comment} />
                         </form>
                         <div className="bt-div">
-                            <button onClick={this.onSubmitComment}>Submit</button>
+                            <button onClick={this.onSubmitComment} className="comment-button">Submit</button>
                         </div>
                     </div>
                     <div className="article-votes">

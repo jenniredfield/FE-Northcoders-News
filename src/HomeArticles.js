@@ -24,7 +24,7 @@ class HomeArticles extends Component {
         changeVote('articles', id, value).then(newArticle => { console.log(newArticle)
              return newArticle}).then((newArticle) =>  {
             newArticle = newArticle[0]
-            console.log('*******', newArticle)
+     
             let updatedArticles = this.state.articles.map(article => {
                         if(article._id === newArticle._id) {
                             console.log(newArticle.comments)

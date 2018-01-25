@@ -254,6 +254,12 @@ nav ul {
   text-align: justify;
 }
 
+.comment-button {
+  color: white;
+  background: black;
+}
+
+
 button:focus {
   outline: none;
 }
