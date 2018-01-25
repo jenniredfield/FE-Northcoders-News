@@ -32,9 +32,7 @@ class ArticleById extends Component {
     getComments = () => {
 
         fetchComments(this.state.id).then(comments => {
-            console.log('???')
-            console.log(this.state.id)
-            console.log(comments)
+           
             this.setState({
                 comments: comments.reverse(),
             })
@@ -47,7 +45,7 @@ class ArticleById extends Component {
     voteOnArticle = (id, value) => {
 
         changeVote('articles', id, value).then(newArticle => {
-                console.log("****", newArticle)
+             
             this.setState({
                 article: newArticle[0],
             })
