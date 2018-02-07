@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import {Link} from 'react-router-dom';
 import ArticleComp from './ArticleComp'
 import {fetchArticlesTwo, changeVote} from './api.js'
 
@@ -13,7 +12,7 @@ class HomeArticles extends Component {
 
     componentDidMount(){
         fetchArticlesTwo('articles').then(body => {
-
+        
             this.setState({ articles : body.slice(0,10), loading: false, })
         })
     }
@@ -21,13 +20,15 @@ class HomeArticles extends Component {
 
      voteOnArticle = (id, value) => {
 
-        changeVote('articles', id, value).then(newArticle => { console.log(newArticle)
+        changeVote('articles', id, value).then(newArticle => { 
+          
+             newArticle = newArticle.article;
+
              return newArticle}).then((newArticle) =>  {
-            newArticle = newArticle[0]
+                    newArticle = newArticle[0]
      
             let updatedArticles = this.state.articles.map(article => {
                         if(article._id === newArticle._id) {
-                            console.log(newArticle.comments)
                             newArticle.comments = article.comments;
                             return newArticle;
                         } else {

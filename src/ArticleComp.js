@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { fetchArticlesTwo, changeVote } from './api.js';
 import Voter from './Voter.js';
 
 
@@ -9,7 +8,7 @@ const ArticleComp = ({ articles, voteOnArticle }) => {
     return articles.map((article, i) => {
 
         return (
-            <div className="column is-half">
+            <div className="column is-half" key={i}>
                     <div className="home-div-a">
                 <Link to={`/articles/${article._id}`}>
                         <h2>{article.title}</h2> </Link>
@@ -24,7 +23,7 @@ const ArticleComp = ({ articles, voteOnArticle }) => {
                         votes={article.votes}
                         onVote={voteOnArticle.bind(null, article._id)}
                     />
-                    <div className="ic-div"><i class="fa fa-comment-o" aria-hidden="true"></i>{article.comments}</div>
+                    <div className="ic-div"><i className="fa fa-comment-o" aria-hidden="true"></i>{article.comments}</div>
                 </div>
             </div>
 

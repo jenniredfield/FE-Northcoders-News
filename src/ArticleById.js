@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
 import Voter from './Voter.js';
-import { fetchArticlesTwo, changeVote, fetchComments, fetchArticlesById, postComment, deleteComment } from './api.js'
+import {changeVote, fetchComments, fetchArticlesById, postComment, deleteComment } from './api.js'
 import moment from 'moment';
 
 class ArticleById extends Component {
@@ -21,7 +20,7 @@ class ArticleById extends Component {
 
     getArticle = () => {
         fetchArticlesById(this.state.id).then(res => {
-            console.log(res)
+          
             this.setState({
                 article: res,
             })
@@ -45,9 +44,9 @@ class ArticleById extends Component {
     voteOnArticle = (id, value) => {
 
         changeVote('articles', id, value).then(newArticle => {
-             
+            newArticle = newArticle.article[0]
             this.setState({
-                article: newArticle[0],
+                article: newArticle,
             })
 
         })
@@ -82,7 +81,7 @@ class ArticleById extends Component {
     voteOnComment = (id, value) => {
 
         changeVote('comments', id, value).then(newComment => {
-            console.log("******", newComment)
+           
             let updatedComments = this.state.comments.map(comment => {
                 if (comment._id === newComment._id) {
 
@@ -103,10 +102,10 @@ class ArticleById extends Component {
 
 
     handleDelete = (id) => {
-        console.log('delete?')
+     
 
         deleteComment(id).then(() => {
-            console.log('hello')
+       
             this.getComments();
         })
 

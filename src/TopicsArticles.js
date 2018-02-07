@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import {Link} from 'react-router-dom';
 import ArticleComp from './ArticleComp'
 import {fetchArticlesTwo, changeVote} from './api.js';
 
@@ -13,9 +12,9 @@ class TopicsArticles extends Component {
     }
   
     componentDidMount(){
-        console.log(this.state.topic)
+  
         fetchArticlesTwo('topics', this.state.topic).then(body => {
- 
+            console.log(body)
             this.setState({ articles : body, loading: false })
         })
     }
@@ -24,8 +23,7 @@ class TopicsArticles extends Component {
     componentWillReceiveProps(nextProps){
       const oldProps = this.state.topic;
       const newProps = nextProps.match.params.topic;
-        console.log(oldProps)
-        console.log(newProps)
+       
 
         if(newProps !== oldProps) {
 
@@ -40,7 +38,8 @@ class TopicsArticles extends Component {
      voteOnArticle = (id, value) => {
 
         changeVote('articles', id, value).then(newArticle => {
-            newArticle = newArticle[0];
+            newArticle = newArticle.article[0];
+            
             let updatedArticles = this.state.articles.map(article => {
                         if(article._id === newArticle._id) {
                             newArticle.comments = article.comments;

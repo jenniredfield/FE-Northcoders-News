@@ -23,7 +23,7 @@ class App extends Component {
             <h1>News</h1>
         </header>
         <NavBar/>
-        <div class="main-content">
+        <div className="main-content">
               <Route exact path="/" component={HomeArticles} />
               <Route exact path="/articles" component={AllArticles} />
               <Route exact path="/articles/:article_id" component={ArticleById} />
@@ -35,7 +35,7 @@ class App extends Component {
         </div>
       <footer>
         <div className="footer-div">
-             <a href="https://github.com/jenniredfield"><i class="fa fa-github" aria-hidden="true"></i></a>
+             <a href="https://github.com/jenniredfield"><i className="fa fa-github" aria-hidden="true"></i></a>
             <p>Created by JBird</p>
         </div>
       </footer>

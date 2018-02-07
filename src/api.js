@@ -1,14 +1,16 @@
 
-const LOCAL_URL = "https://localhost:3000/api/";
+// const LOCAL_URL = "http://localhost:3000/api/";
 // https://northcoders-news-api.herokuapp.com/api/
-const URL = "https://nc-news-backend.herokuapp.com/api/";
+// const URL = "https://nc-news-backend.herokuapp.com/api/";
+//https://be-nc-news-jen-feb.herokuapp.com/api/
+const URL = "https://be-nc-news-jen-feb.herokuapp.com/api/";
 
 export const fetchArticlesTwo = (path, topic) => {
 
     const url = topic
         ? `${URL}${path}/${topic}/articles`
         : `${URL}${path}`;
-
+    
 
 
     return fetch(url, { method: 'GET' })
@@ -16,25 +18,41 @@ export const fetchArticlesTwo = (path, topic) => {
 
          return res.json()})
         .then(articles => {
-  
+            
+            articles = articles.articles;
+            
             let articlesSorted = articles.sort(function (a, b) {
                 return b.votes - a.votes;
             })
 
             return articlesSorted
-        });
+        }).catch(console.error)
 };
+
+export const fetchTopics = () => {
+
+   return fetch(`${URL}topics`)
+    .then((resBuffer) => resBuffer.json())
+    .then((res) => {
+
+        let topics = res.topics;
+       return topics;
+
+    })
+    .catch(console.error);
+}
+
 
 export const changeVote = (path, id, value) => {
 
     return fetch(`${URL}${path}/${id}?vote=${value}`, {
         method: 'PUT'
     }).then(res => {
-        console.log(res)
+      
         return res.json();
-    }).then(resJSON => {
-        console.log(resJSON)
-        return resJSON;
+    }).then(res => {
+   
+        return res;
     })
     .catch(console.error)
 
@@ -47,8 +65,8 @@ export const fetchComments = (id) => {
         .then(res =>  {
            return res.json()
         }).then(res => {
-        
-            return res;
+            let comments = res.comments;
+            return comments;
         })
 
 }
@@ -58,8 +76,8 @@ export const fetchArticlesById = (id) => {
     return fetch(`${URL}articles/${id}`)
         .then((resBuffer) => resBuffer.json())
         .then((res) => {
-            console.log(res)
-            return res
+           let article = res.article;
+            return article;
         })
         .catch(console.log);
 
@@ -82,10 +100,24 @@ export const postComment = (data, id) => {
 }
 
 export const deleteComment = (id) => {
-    console.log('api')
+
    return  fetch(`${URL}comments/${id}/`, { method: 'DELETE' })
    .then(res => {
-       console.log('delete commnet api')
+       
        return res;
    });
+}
+
+export const fetchUser = (user) => {
+
+   return fetch(`${URL}users/${user}/`)
+        .then(resBuffer => {
+            return resBuffer.json();
+        }).then(res => {
+            console.log(res)
+          return res;
+
+
+        })
+
 }

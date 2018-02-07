@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {Link} from 'react-router-dom';
-
+import {fetchTopics} from './api.js'
 
 class NavBar extends Component {
 
@@ -9,23 +9,15 @@ class NavBar extends Component {
     }
 
     componentDidMount(){
-        this.fetchTopics();
-    }
-
-    fetchTopics = () => {
-
-        fetch(`https://northcoders-news-api.herokuapp.com/api/topics`)
-        .then((resBuffer) => resBuffer.json())
-        .then((res) => {
+        fetchTopics().then(topics => {
             this.setState({
-                topics: res.topics,
-              
-            });
-    
+                topics : topics
+            })
         })
-        .catch(console.log);
-    
     }
+
+
+    
 
     render () {
 
@@ -42,7 +34,7 @@ class NavBar extends Component {
                         </div>
                         { this.state.topics.map((topic, i) => {
                             return (
-                                <div className="topics-li-div">
+                                <div className="topics-li-div" key={i}>
                                    <Link to={`/topics/${topic.slug}/articles`}> <li key={i}>{topic.title}</li></Link>
                                 </div>
                             )
