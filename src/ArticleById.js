@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Voter from './Voter.js';
-import {changeVote, fetchComments, fetchArticlesById, postComment, deleteComment } from './api.js'
+import { changeVote, fetchComments, fetchArticlesById, postComment, deleteComment } from './api.js'
 import moment from 'moment';
 
 class ArticleById extends Component {
@@ -20,7 +20,7 @@ class ArticleById extends Component {
 
     getArticle = () => {
         fetchArticlesById(this.state.id).then(res => {
-          
+
             this.setState({
                 article: res,
             })
@@ -31,7 +31,7 @@ class ArticleById extends Component {
     getComments = () => {
 
         fetchComments(this.state.id).then(comments => {
-           
+
             this.setState({
                 comments: comments.reverse(),
             })
@@ -81,7 +81,7 @@ class ArticleById extends Component {
     voteOnComment = (id, value) => {
 
         changeVote('comments', id, value).then(newComment => {
-           
+
             let updatedComments = this.state.comments.map(comment => {
                 if (comment._id === newComment._id) {
 
@@ -102,10 +102,10 @@ class ArticleById extends Component {
 
 
     handleDelete = (id) => {
-     
+
 
         deleteComment(id).then(() => {
-       
+
             this.getComments();
         })
 
@@ -126,6 +126,14 @@ class ArticleById extends Component {
                         <h3>{this.state.article.created_by}</h3>
                         <p>{this.state.article.body}</p>
                     </div>
+                    <div className="article-votes">
+
+                        <Voter
+                            votes={this.state.article.votes}
+                            onVote={this.voteOnArticle.bind(null, this.state.id)}
+                        />
+
+                    </div>
                 </div>
 
                 <div className="com-vote">
@@ -138,14 +146,14 @@ class ArticleById extends Component {
                             <button onClick={this.onSubmitComment} className="comment-button">Submit</button>
                         </div>
                     </div>
-                    <div className="article-votes">
+                    {/* <div className="article-votes">
 
                         <Voter
                             votes={this.state.article.votes}
                             onVote={this.voteOnArticle.bind(null, this.state.id)}
                         />
 
-                    </div>
+                    </div> */}
                 </div>
 
                 <div className="comments">
@@ -159,7 +167,7 @@ class ArticleById extends Component {
                                     <h3>{comment.created_by}</h3><span className="comment-time">{moment(comment.created_at).format('LLL')}</span>
                                     <p>{comment.body}</p>
                                     <Voter votes={comment.votes} onVote={this.voteOnComment.bind(null, comment._id)} />
-                                    <button onClick={() => this.handleDelete(comment._id)}>Delete</button>
+                                    <button onClick={() => this.handleDelete(comment._id)} className='delete-button'>Delete</button>
                                 </div>
                             )
                         })

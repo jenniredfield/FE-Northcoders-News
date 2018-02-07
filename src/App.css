@@ -211,7 +211,8 @@ nav ul {
 .insert-comment textarea {
    height: 100px;
    margin: 5px;
-   border-radius: 5px;
+   border-radius: 2px;
+   width: 40%;
 
 }
 
@@ -249,6 +250,16 @@ nav ul {
 .comment-button {
   color: white;
   background: black;
+  border: none;
+  border-radius: 100px;
+  padding: 8px 15px;
+  margin: 5px;
+}
+
+.comment-button:hover {
+  background: tomato;
+  cursor: pointer;
+  transition: .3s;
 }
 
 
@@ -259,6 +270,21 @@ button:focus {
 .comment-time {
   font-size: 12px;
   color: rgb(147, 147, 147);
+}
+
+.delete-button {
+
+
+  padding: 5px 15px;
+  border-radius: 100px;
+   transition: .2s;
+}
+
+.delete-button:hover {
+  color: white;
+  background: rgb(42,42,42);
+  cursor: pointer;
+
 }
 
 /* USER */
@@ -356,7 +382,7 @@ footer {
   /* position: absolute;
   top: calc(20% - 50px);
   left: calc(50% - 50px); */
-  border-bottom: 3px solid tomato;
+  border-bottom: 3px solid rgb(193, 55, 55);
   animation: animate 2s linear infinite;
   
 }
@@ -448,10 +474,17 @@ footer {
   .insert-comment {
     /* border: 1px solid black; */
     flex: 1 1 100%;
+    margin: 0;
+
   
+  }
+
+  .insert-comment textarea {
+    width: 100%;
   }
   
   .article-votes {
+ 
     flex: 1 1 100%;
   }
   
