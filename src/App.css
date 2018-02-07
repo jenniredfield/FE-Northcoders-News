@@ -155,8 +155,16 @@ nav ul {
   background: rgb(31, 173, 57);
 }
 
+.voteUp:hover {
+  background: rgb(26, 141, 47);
+}
+
 .voteDown {
   background: tomato;
+}
+
+.voteDown:hover {
+  background: rgb(235, 50, 17);
 }
 
 /* ARTICLE BY ID */
@@ -488,5 +496,11 @@ footer {
     flex: 1 1 100%;
   }
   
+  .home-icons {
+    display: flex;
+    justify-content: center;
+    /* align-items: center;
+    text-align: center */
+  }
 
 }
