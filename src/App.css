@@ -10,26 +10,50 @@ body, html {
 header {
 
   width: 100%;
-  height: 200px;
+  height: 150px;
   background: rgba(229, 229, 229, 0.703);
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   margin: 0;
 }
 
+.header-logo-div {
+
+    /* border: 1px solid red; */
+    flex: 1 1 100%;
+    height: 30px;
+    margin: 0;
+    padding: 0;
+    background: url('https://northcoders.com/images/logos/learn_to_code_manchester_rw_original.png') no-repeat;
+    background-size: 50px;
+    margin-bottom: 20px;
+
+}
+
+.header-h1-div {
+  /* border: 1px solid red; */
+  width: 100%;
+  text-align: center;
+}
+
+
 header h1 {
   margin: 0;
+  padding: 0;
   font-family: 'Kalam', cursive;
+  font-size: 4em;
+  margin-bottom: 10px;
   color: rgb(62, 62, 62);
 
 }
 
-header img {
+/* header img {
   width: 20%;
   margin: 0;
   height: auto;
 
-}
+} */
 
 /* NAV *********/
 
@@ -208,7 +232,7 @@ nav ul li {
 }
 
 .insert-comment {
-  /* border: 1px solid black; */
+  border: 1px solid black;
   flex: 1 1 40%;
   padding: 20px;
 
@@ -227,13 +251,14 @@ nav ul li {
   /* border: 1px solid red; */
   display: flex;
   flex-direction: column;
+  width: 90%;
 
 }
 
 
 .insert-comment textarea {
    height: 100px;
-   margin: 5px;
+   /* margin: 5px; */
    border-radius: 2px;
    width: 40%;
 
@@ -389,12 +414,10 @@ footer {
   font-size: 50px;
   display: flex;
   justify-content: center;
-  /* margin: 100px 0; */
-  /* margin-top: 200px; */
   padding-top: 3%;
-   /* margin: 0 auto; */
+   margin: 0 auto;
    /* border: 1px solid red; */
-  /* position:relative; */
+
 }
 
 .loader {
@@ -467,6 +490,20 @@ footer {
 
 @media screen and (max-width: 600px) {
 
+  .header-logo-div {
+
+    background-size: 50px;
+    height: 40px;
+
+
+  }
+
+
+  .header-h1-div h1 {
+    font-size: 3em;
+  
+  }
+
   nav {
 
     width: 100%;
@@ -536,4 +573,12 @@ footer {
     padding-top: 10%;
     margin: auto;
   }
+}
+
+@media screen and (max-width: 600px) {
+
+    .header-h1-div h1 {
+      font-size: 2em;
+    }
+
 }

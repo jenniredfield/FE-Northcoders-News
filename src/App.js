@@ -18,9 +18,12 @@ class App extends Component {
       <BrowserRouter>
       <div className="App">
         <header className="App-header">
-    
-            <img src="https://northcoders.com/images/logos/learn_to_code_manchester_rw_original.png" alt="logo"/>
-            <h1>News</h1>
+            <div className="header-logo-div">
+          
+            </div>
+            <div className="header-h1-div">
+               <h1>Northcoders News</h1>
+            </div>
         </header>
         <NavBar/>
         <div className="main-content">
