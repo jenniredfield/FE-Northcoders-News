@@ -62,14 +62,14 @@ class TopicsArticles extends Component {
     render () {
 
         if(this.state.loading) {
-            return ( <div className='loading'>Loading...</div> )
+            return ( <div className='loading'><div className="loader"></div></div> )
             }
 
-
+           
         return (
 
             <div className="home-articles-wrapper">
-              <div className="page-title"><h2>{this.state.topic} | Trending news</h2> </div>
+              <div className="page-title"><h2>{this.state.topic[0].toUpperCase() + this.state.topic.substr(1, this.state.topic.length)} | News</h2> </div>
                 <div className="columns">
  
                     <ArticleComp articles={this.state.articles} voteOnArticle={this.voteOnArticle}/>

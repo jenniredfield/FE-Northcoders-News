@@ -32,7 +32,7 @@ header img {
 /* NAV *********/
 
 nav {
-  background: rgb(23, 23, 23);
+  background: rgb(42, 42, 42);
 
 
 }
@@ -46,16 +46,7 @@ nav ul {
 
 /* HOME **********/
 
-.loading {
 
-  width: 90%;
-  height: 100vh;
-  font-size: 50px;
-  display: flex;
-  justify-content: center;
-  margin: 50px 0;
-
-}
 
 .page-title {
 
@@ -97,7 +88,7 @@ nav ul {
 }
 
 .home-articles-wrapper {
-    width: 80%;
+    width: 90%;
     margin: 0 auto;
     border-left: 1px dotted lightgray;
     border-right: 1px dotted lightgray;
@@ -339,7 +330,101 @@ footer {
   color: rgb(193, 55, 55);
 }
 
+/*LODEAR*/
+
+.loading {
+
+  width: 90%;
+  height: 100vh;
+  font-size: 50px;
+  display: flex;
+  justify-content: center;
+  margin: 100px 0;
+  /* margin-top: 200px;
+  border: 1px solid red; */
+  /* position:relative; */
+}
+
+.loader {
+
+
+  border: 3px solid rgb(190, 190, 190);
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+  /* margin: auto; */
+  /* position: absolute;
+  top: calc(20% - 50px);
+  left: calc(50% - 50px); */
+  border-bottom: 3px solid tomato;
+  animation: animate 2s linear infinite;
+  
+}
+
+/* .loader:before {
+  
+  content: "";
+  border: 5px solid grey;
+  border-radius: 50%;
+  position: absolute;
+  top:  10px;
+  left: 10px;
+  right: 10px;
+  bottom: 10px;
+  border-bottom: 5px solid black;
+  animation: animate 2s linear infinite;
+  
+}
+
+.loader:after {
+  
+  content: "";
+  border: 5px solid grey;
+  border-radius: 50%;
+  position: absolute;
+  top:  22px;
+  left: 22px;
+  right: 22px;
+  bottom: 22px;
+  border-bottom: 5px solid tomato;
+  animation: animate 1s linear infinite;
+  
+} */
+
+@keyframes animate {
+  
+  0%{
+    
+    transform: rotate(0deg);
+    
+  }
+  
+    100%{
+    
+    transform: rotate(360deg);
+    
+  }
+  
+  
+  
+  
+}
+
+
+
+
 @media screen and (max-width: 600px) {
+
+  nav {
+
+    width: 98%;
+    margin: 0 auto;
+  }
+
+  .home-articles-wrapper {
+    width: 98%;
+
+}
 
   header img {
     width: 40%;

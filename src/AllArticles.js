@@ -46,7 +46,7 @@ class AllArticles extends Component {
 
     render () {
         if(this.state.loading) {
-            return ( <div className='loading'>Loading...</div> )
+            return ( <div className='loading'><div className="loader"></div></div> )
             }
 
         return (
