@@ -28,7 +28,7 @@ class App extends Component {
         </header>
         <NavBar/>
 
-        <WeatherComp/>
+        {/* <WeatherComp/> */}
         
         <div className="main-content">
               <Route exact path="/" component={HomeArticles} />
