@@ -5,7 +5,8 @@ import AllArticles from './AllArticles.js';
 import ArticleById from './ArticleById.js';
 import TopicsArticles from './TopicsArticles.js'
 import { Route, BrowserRouter} from 'react-router-dom';
-import UserComp from './UserComp.js'
+import UserComp from './UserComp.js';
+import WeatherComp from './WeatherComp';
 import './App.css';
 // import 'bulma/css/bulma.css'
 
@@ -26,6 +27,9 @@ class App extends Component {
             </div>
         </header>
         <NavBar/>
+
+        <WeatherComp/>
+        
         <div className="main-content">
               <Route exact path="/" component={HomeArticles} />
               <Route exact path="/articles" component={AllArticles} />

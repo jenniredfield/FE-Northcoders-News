@@ -3,19 +3,20 @@ body, html {
   margin: 0;
   box-sizing: border-box;
   font-family: 'Didact Gothic', sans-serif;
+  background: rgba(214, 214, 214, 0.767);
 }
 
 /* HEADER */
 
 header {
 
-  width: 100%;
+  width: 90%;
   height: 150px;
   background: rgba(229, 229, 229, 0.703);
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  margin: 0;
+  margin: 0 auto;
 }
 
 .header-logo-div {
@@ -59,7 +60,8 @@ header h1 {
 
 nav {
   background: rgb(42, 42, 42);
-  width: 100%;
+  width: 90%;
+  margin: 0 auto;
 
 
 }
@@ -77,6 +79,40 @@ nav ul li {
   width: 100%;
   overflow: hidden;
 }
+
+/*WEATHER BOX*/
+
+.weather-box {
+
+  /* height: 100px; */
+  /* border: 1px solid red; */
+  display: flex;
+
+  width: 90%;
+  /* border: 1px solid red; */
+  margin: 0 auto;
+}
+
+.weather-icon {
+  padding: 5px;
+}
+
+.weather-icon > img {
+  width: 40px;
+}
+
+.weather-details {
+ /* text-align: center; */
+}
+
+.weather-details > img {
+  width: 40px;
+}
+.weather-details h2 {
+  font-size: 0.8em;
+    margin: 0;
+}
+
 
 /* HOME **********/
 
