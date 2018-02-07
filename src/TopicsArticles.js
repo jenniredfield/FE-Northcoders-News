@@ -14,7 +14,7 @@ class TopicsArticles extends Component {
     componentDidMount(){
   
         fetchArticlesTwo('topics', this.state.topic).then(body => {
-            console.log(body)
+       
             this.setState({ articles : body, loading: false })
         })
     }
@@ -39,7 +39,7 @@ class TopicsArticles extends Component {
 
         changeVote('articles', id, value).then(newArticle => {
             newArticle = newArticle.article[0];
-            
+
             let updatedArticles = this.state.articles.map(article => {
                         if(article._id === newArticle._id) {
                             newArticle.comments = article.comments;
