@@ -4,6 +4,8 @@ body, html {
   box-sizing: border-box;
   font-family: 'Didact Gothic', sans-serif;
   background: rgba(230, 230, 230, 0.767);
+  /* background: url('public/background.jpg') no-repeat; */
+  /* background-size: cover; */
 }
 
 /* HEADER */
@@ -11,24 +13,24 @@ body, html {
 header {
 
   width: 90%;
-  height: 150px;
-  background: rgba(229, 229, 229, 0.703);
+  /* height: 150px; */
+  /* background: rgba(123, 18, 18, 0.703); */
   display: flex;
-  flex-wrap: wrap;
-  align-items: center;
+  /* flex-wrap: wrap;
+  align-items: center; */
   margin: 0 auto;
 }
 
 .header-logo-div {
 
     /* border: 1px solid red; */
-    flex: 1 1 100%;
+    flex: 1 1 60%;
     height: 30px;
     margin: 0;
     padding: 0;
     background: url('https://northcoders.com/images/logos/learn_to_code_manchester_rw_original.png') no-repeat;
     background-size: 50px;
-    margin-bottom: 20px;
+    /* margin-bottom: 20px; */
 
 }
 
@@ -86,23 +88,23 @@ nav ul li {
 
   /* height: 100px; */
   /* border: 1px solid red; */
+  align-self: flex-end;
   display: flex;
-
-  width: 90%;
-  /* border: 1px solid red; */
   margin: 0 auto;
 }
 
 .weather-icon {
-  padding: 5px;
+  /* padding: 5px; */
 }
 
 .weather-icon > img {
-  width: 40px;
+  width: 20px;
 }
 
 .weather-details {
  /* text-align: center; */
+ display: flex;
+
 }
 
 .weather-details > img {
@@ -110,7 +112,7 @@ nav ul li {
 }
 .weather-details h2 {
   font-size: 0.8em;
-    margin: 0;
+  margin: 0 5px;
 }
 
 
@@ -133,11 +135,22 @@ nav ul li {
 
 .topics-li-div {
   display: flex;
-  border: 1px solid white;
+  border-left: 1px solid white;
+  border-right: 1px solid white;
   display: block;
   width: 100%;
   transition: .3s;
 }
+
+.topics-li-div:nth-child(1) {
+  border-left: none;
+}
+
+
+.topics-li-div:last-child {
+  border-right: none;
+}
+
 
 .topics-li-div > a {
   
@@ -516,9 +529,6 @@ footer {
     
   }
   
-  
-  
-  
 }
 
 
@@ -558,6 +568,16 @@ footer {
     margin: 0;
   }
 
+  .topics-li-div a {
+    border: none;
+    border: .5px solid white;
+  }
+
+  .topics-li-div {
+    border: none;
+    /* border-top: white; */
+  }
+
   .home-articles-wrapper {
     width: 98%;
 
@@ -569,9 +589,26 @@ footer {
     padding: 0;
   }
 
+  header {
+    align-content: center;
+    justify-content: center;
+
+  }
+
+  .header-logo-div {
+    flex: 1 1 30%;
+    align-self: center;
+
+
+  }
+
+  .weather-box {
+ 
+    align-self: center;
+  }
+
   .is-half {
     flex: 1 1 100%;
-    /* border: 1px solid red;  */
 
   }
   
@@ -611,10 +648,41 @@ footer {
   }
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 400px) {
 
-    .header-h1-div h1 {
-      font-size: 2em;
-    }
+
+  header img {
+    width: 40%;
+    margin: 0;
+    padding: 0;
+  }
+
+  header {
+    align-content: center;
+    justify-content: center;
+    width: 90%;
+    
+
+  }
+
+  .header-logo-div {
+    flex: 1 1 30%;
+    align-self: center;
+
+
+  }
+
+  .weather-box {
+    flex: 1 1 50%;
+    align-self: flex-start;
+
+  }
+
+  .weather-box > div {
+    /* border: 1px solid red;
+    flex-direction: flex-end; */
+    justify-content: flex-end;
+    margin-left: 5px; 
+  }
 
 }

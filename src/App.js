@@ -20,11 +20,8 @@ class App extends Component {
       <div className="App">
         <header className="App-header">
             <div className="header-logo-div">
-          
             </div>
-            <div className="header-h1-div">
-               <h1>Northcoders News</h1>
-            </div>
+           <WeatherComp/>
         </header>
         <NavBar/>
 
