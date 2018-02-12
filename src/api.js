@@ -113,10 +113,8 @@ export const fetchUser = (user) => {
         .then(resBuffer => {
             return resBuffer.json();
         }).then(res => {
-            console.log(res)
+ 
           return res;
-
-
         })
 
 }
