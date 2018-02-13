@@ -60,6 +60,12 @@ header h1 {
 
 /* NAV *********/
 
+.burger-nav {
+  display: none;
+}
+
+
+
 nav {
   background: rgb(42, 42, 42);
   width: 90%;
@@ -73,6 +79,7 @@ nav ul {
   justify-content: space-around;
   margin: 0;
   padding: 0;
+ 
 }
 
 nav ul li {
@@ -487,35 +494,6 @@ footer {
   
 }
 
-/* .loader:before {
-  
-  content: "";
-  border: 5px solid grey;
-  border-radius: 50%;
-  position: absolute;
-  top:  10px;
-  left: 10px;
-  right: 10px;
-  bottom: 10px;
-  border-bottom: 5px solid black;
-  animation: animate 2s linear infinite;
-  
-}
-
-.loader:after {
-  
-  content: "";
-  border: 5px solid grey;
-  border-radius: 50%;
-  position: absolute;
-  top:  22px;
-  left: 22px;
-  right: 22px;
-  bottom: 22px;
-  border-bottom: 5px solid tomato;
-  animation: animate 1s linear infinite;
-  
-} */
 
 @keyframes animate {
   
@@ -533,10 +511,35 @@ footer {
   
 }
 
+.display {
+  display: block;
+}
 
+.hide {
+  display: none;
+}
 
 
 @media screen and (max-width: 600px) {
+
+  .burger-nav {
+    display: block;
+    cursor: pointer;
+    width: 90%;
+  }
+
+
+  .fa-bars {
+    font-size: 30px;
+    padding: 5px;
+    padding-left: 10px;
+    color: lightgray;
+
+  }
+
+  nav ul {
+    display: none;
+  }
 
   .header-logo-div {
 
@@ -572,11 +575,14 @@ footer {
 
   .topics-li-div a {
     border: none;
-    border: .5px solid white;
+    border-top: .5px solid white;
+    /* border-bottom: .5px solid white; */
+
   }
 
   .topics-li-div {
     border: none;
+
     /* border-top: white; */
   }
 
@@ -674,17 +680,5 @@ footer {
 
   }
 
-  .weather-box {
-    flex: 1 1 50%;
-    align-self: flex-start;
-
-  }
-
-  .weather-box > div {
-    /* border: 1px solid red;
-    flex-direction: flex-end; */
-    justify-content: flex-end;
-    margin-left: 5px; 
-  }
 
 }
