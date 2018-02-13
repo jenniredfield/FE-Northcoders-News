@@ -26,7 +26,7 @@ class NavBar extends Component {
     
 
     render () {
-        console.log(window.innerWidth)
+        
         return (
 
 
