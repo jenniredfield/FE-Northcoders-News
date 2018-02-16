@@ -8,7 +8,6 @@ import { Route, BrowserRouter, Switch} from 'react-router-dom';
 import UserComp from './UserComp.js';
 import Notfound from './Notfound';
 import './App.css';
-// import 'bulma/css/bulma.css'
 
 class App extends Component {
   
@@ -21,8 +20,6 @@ class App extends Component {
             </div>
           </header>
           <NavBar/>
-
-          {/* <WeatherComp/> */}
         
           <div className="main-content">
             <Switch>
@@ -37,7 +34,7 @@ class App extends Component {
           </div>
           <footer>
             <div className="footer-div">
-              <a href="https://github.com/jenniredfield"><i className="fa fa-github" aria-hidden="true"></i></a>
+              <a href="https://github.com/jenniredfield" alt="gitpage"><i className="fa fa-github" aria-hidden="true"></i></a>
               <p>Created by JBird</p>
             </div>
           </footer>
