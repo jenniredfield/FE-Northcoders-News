@@ -3,7 +3,7 @@ The site allows users to comment on articles, and to vote on articles and commen
 
 The project can be viewed [here](https://nc-news-jen.herokuapp.com/)
 
-In order to run this project you need Node installed. You can download it [here](https://nc-news-jen.herokuapp.com/)
+In order to run this project you need Node installed. You can download it [here](https://nodejs.org/en/download/)
 
 To download this project on your terminal type:
 

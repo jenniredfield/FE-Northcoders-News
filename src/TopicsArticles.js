@@ -1,22 +1,22 @@
 import React, { Component } from 'react';
-import ArticleComp from './ArticleComp'
+import ArticleComp from './ArticleComp';
 import {fetchArticlesTwo, changeVote} from './api.js';
 
 
 class TopicsArticles extends Component {
 
     state = {
-        articles: [],
-        topic: this.props.match.params.topic,
-        loading: true
+      articles: [],
+      topic: this.props.match.params.topic,
+      loading: true
     }
   
     componentDidMount(){
   
-        fetchArticlesTwo('topics', this.state.topic).then(body => {
+      fetchArticlesTwo('topics', this.state.topic).then(body => {
        
-            this.setState({ articles : body, loading: false })
-        })
+        this.setState({ articles : body, loading: false });
+      });
     }
 
 
@@ -25,64 +25,64 @@ class TopicsArticles extends Component {
       const newProps = nextProps.match.params.topic;
        
 
-        if(newProps !== oldProps) {
+      if(newProps !== oldProps) {
 
-            fetchArticlesTwo('topics', newProps).then(body => {
+        fetchArticlesTwo('topics', newProps).then(body => {
  
-                this.setState({ articles : body, topic: newProps })
-                })
-            }
-        }
+          this.setState({ articles : body, topic: newProps });
+        });
+      }
+    }
     
 
      voteOnArticle = (id, value) => {
 
-        changeVote('articles', id, value).then(newArticle => {
-            newArticle = newArticle.article[0];
+       changeVote('articles', id, value).then(newArticle => {
+         newArticle = newArticle.article[0];
 
-            let updatedArticles = this.state.articles.map(article => {
-                        if(article._id === newArticle._id) {
-                            newArticle.comments = article.comments;
-                            return newArticle;
-                        } else {
-                            return article;
-                        }
-                })
+         let updatedArticles = this.state.articles.map(article => {
+           if(article._id === newArticle._id) {
+             newArticle.comments = article.comments;
+             return newArticle;
+           } else {
+             return article;
+           }
+         });
                 
-                this.setState({
-                    articles : updatedArticles,
-                })
+         this.setState({
+           articles : updatedArticles,
+         });
 
-          })
+       });
   
 
-        }
+     }
 
 
-    render () {
+     render () {
 
-        if(this.state.loading) {
-            return ( <div className='loading'><div className="loader"></div></div> )
-            }
+       if(this.state.loading) {
+         return ( <div className='loading'><div className="loader"></div></div> );
+       }
 
            
-        return (
+       return (
 
-            <div className="home-articles-wrapper">
-              <div className="page-title"><h2>{this.state.topic[0].toUpperCase() + this.state.topic.substr(1, this.state.topic.length)} | News</h2> </div>
-                <div className="columns">
+         <div className="home-articles-wrapper">
+           <div className="page-title"><h2>{this.state.topic[0].toUpperCase() + this.state.topic.substr(1, this.state.topic.length)} | News</h2> </div>
+           <div className="columns">
  
-                    <ArticleComp articles={this.state.articles} voteOnArticle={this.voteOnArticle}/>
-                </div>
+             <ArticleComp articles={this.state.articles} voteOnArticle={this.voteOnArticle}/>
+           </div>
                                
   
-            </div>
+         </div>
             
         
              
 
-        )
-    }
+       );
+     }
 }
 
 export default TopicsArticles;

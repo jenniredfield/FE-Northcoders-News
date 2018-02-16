@@ -7,32 +7,32 @@ class UserComp extends React.Component {
 
 
     state = {
-        user: this.props.match.params.username,
-        body: {},
+      user: this.props.match.params.username,
+      body: {},
     }
 
     componentDidMount() {
-        fetchUser(`${this.state.user}`).then(user => { 
-            this.setState({
-                body: user,
-            })
+      fetchUser(`${this.state.user}`).then(user => { 
+        this.setState({
+          body: user,
         });
+      });
     }
 
 
     render() {
      
-        return (
+      return (
 
-            <div className="user-div">
-                <div className="user-grid1"><img src={this.state.body.avatar_url} alt="user-logo" /> </div>
-                <div className="user-grid2">
-                    <h3>{this.state.body.name}</h3>
-                    <h3 className="p-small">{this.state.user}</h3>
-                </div>
-            </div>
+        <div className="user-div">
+          <div className="user-grid1"><img src={this.state.body.avatar_url} alt="user-logo" /> </div>
+          <div className="user-grid2">
+            <h3>{this.state.body.name}</h3>
+            <h3 className="p-small">{this.state.user}</h3>
+          </div>
+        </div>
 
-        )
+      );
 
     }
 
