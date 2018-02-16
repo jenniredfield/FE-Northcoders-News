@@ -1,10 +1,7 @@
 import React from 'react';
 import {fetchUser} from './api.js';
 
-
-
 class UserComp extends React.Component {
-
 
     state = {
       user: this.props.match.params.username,
@@ -19,11 +16,9 @@ class UserComp extends React.Component {
       });
     }
 
-
     render() {
      
       return (
-
         <div className="user-div">
           <div className="user-grid1"><img src={this.state.body.avatar_url} alt="user-logo" /> </div>
           <div className="user-grid2">
@@ -31,17 +26,8 @@ class UserComp extends React.Component {
             <h3 className="p-small">{this.state.user}</h3>
           </div>
         </div>
-
       );
-
     }
-
-
-
-
 }
-
-
-
 
 export default UserComp;

@@ -19,7 +19,6 @@ class WeatherComp extends React.Component {
         let latitude = position.coords.latitude;
         let longitude = position.coords.longitude;
     
-    
         return fetch(`https://fcc-weather-api.glitch.me/api/current?lat=${latitude}&lon=${longitude}`).then((res) => {
           return res.json();
         }).then((res) => {
@@ -29,7 +28,6 @@ class WeatherComp extends React.Component {
           });
         }).catch(console.error);
       }
-    
     
       render() {
         if(this.state.loading) return <div>Loading...</div>;
@@ -59,10 +57,6 @@ class WeatherComp extends React.Component {
           </div>
         );
       }
-
-
-
-
 }
 
 export default WeatherComp;

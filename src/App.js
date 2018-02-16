@@ -6,7 +6,6 @@ import ArticleById from './ArticleById.js';
 import TopicsArticles from './TopicsArticles.js';
 import { Route, BrowserRouter, Switch} from 'react-router-dom';
 import UserComp from './UserComp.js';
-import WeatherComp from './WeatherComp';
 import Notfound from './Notfound';
 import './App.css';
 // import 'bulma/css/bulma.css'
@@ -20,7 +19,6 @@ class App extends Component {
           <header className="App-header">
             <div className="header-logo-div">
             </div>
-            <WeatherComp/>
           </header>
           <NavBar/>
 

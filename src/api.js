@@ -1,7 +1,3 @@
-// const LOCAL_URL = "http://localhost:3000/api/";
-// https://northcoders-news-api.herokuapp.com/api/
-// const URL = "https://nc-news-backend.herokuapp.com/api/";
-//https://be-nc-news-jen-feb.herokuapp.com/api/
 const URL = 'https://be-nc-news-jen-feb.herokuapp.com/api/';
 
 export const fetchArticlesTwo = (path, topic) => {

@@ -12,34 +12,26 @@ class TopicsArticles extends Component {
     }
   
     componentDidMount(){
-  
+      window.scrollTo(0, 0);
       fetchArticlesTwo('topics', this.state.topic).then(body => {
-       
         this.setState({ articles : body, loading: false });
       });
     }
-
 
     componentWillReceiveProps(nextProps){
       const oldProps = this.state.topic;
       const newProps = nextProps.match.params.topic;
        
-
       if(newProps !== oldProps) {
-
         fetchArticlesTwo('topics', newProps).then(body => {
- 
           this.setState({ articles : body, topic: newProps });
         });
       }
     }
     
-
      voteOnArticle = (id, value) => {
-
        changeVote('articles', id, value).then(newArticle => {
          newArticle = newArticle.article[0];
-
          let updatedArticles = this.state.articles.map(article => {
            if(article._id === newArticle._id) {
              newArticle.comments = article.comments;
@@ -52,35 +44,21 @@ class TopicsArticles extends Component {
          this.setState({
            articles : updatedArticles,
          });
-
        });
-  
-
      }
-
 
      render () {
 
        if(this.state.loading) {
          return ( <div className='loading'><div className="loader"></div></div> );
        }
-
-           
        return (
-
          <div className="home-articles-wrapper">
            <div className="page-title"><h2>{this.state.topic[0].toUpperCase() + this.state.topic.substr(1, this.state.topic.length)} | News</h2> </div>
            <div className="columns">
- 
              <ArticleComp articles={this.state.articles} voteOnArticle={this.voteOnArticle}/>
-           </div>
-                               
-  
+           </div>                         
          </div>
-            
-        
-             
-
        );
      }
 }

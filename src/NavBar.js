@@ -7,7 +7,6 @@ class NavBar extends Component {
     state = {
       topics: [],
       burgerClicked: false,
-        
     }
 
     componentDidMount(){
@@ -24,15 +23,12 @@ class NavBar extends Component {
       });
     }
     
-
     render () {
         
       return (
-
-
         <nav>
           <div className="burger-nav" onClick={this.handleBurger}><i className="fa fa-bars" aria-hidden="true"></i></div>
-          <ul className={this.state.burgerClicked ? 'display' : ''}>
+          <ul className={this.state.burgerClicked ? 'display' : '' }>
             <div className="topics-li-div">
               <Link to="/"><li>Home</li></Link>
             </div>
